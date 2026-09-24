@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ⚡ AI Playground
 
-## Getting Started
+A high-performance, multi-functional AI tool suite powered by **Next.js 15**, **TypeScript**, **Tailwind CSS**, and the **Groq API**. This application delivers ultra-fast AI responses for various everyday utility tasks with smart dynamic model fallback handling.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Live Demo
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Hosted URL:** [Add your Cloudflare / Vercel link here]
+- **Repository:** [https://github.com/YOUR_USERNAME/ai-playground](https://github.com/YOUR_USERNAME/ai-playground)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✨ Features
 
-## Learn More
+- 🔥 **Roast Engine:** Generates sharp, humorous, and witty roasts for social media posts or profiles.
+- ✨ **Caption Generator:** Crafts engaging captions with trending hashtags for Instagram, TikTok, and LinkedIn.
+- 💻 **Code Explainer:** Breaks down complex code snippets into simple, easy-to-understand explanations.
+- 🎭 **Meme Idea Generator:** Produces creative meme concepts, top text, and bottom text ideas.
+- 📝 **Smart Summarizer:** Condenses long essays, articles, or documentation into clear key bullet points.
+- 🔄 **Dynamic Model Selection:** Automatically filters active Groq LLMs and handles fallback logic gracefully.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Framework:** [Next.js 15](https://nextjs.org/) (App Router & Turbopack)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **AI SDK:** [Groq SDK](https://groq.com/)
+- **Deployment:** Cloudflare Pages / Vercel
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🏗️ Architecture & Key Concepts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **API Integration & Fallback Logic (`app/api/generate/route.ts`):**
+   - Fetches available LLM models dynamically from the Groq API.
+   - Filters out non-text models (e.g., audio, whisper, moderation, guardrail models).
+   - Iterates through active text-generation models to ensure request completion even if a specific model gets decommissioned.
+
+2. **Responsive UI Component (`app/page.tsx`):**
+   - State-driven multi-tool tab selection.
+   - Clean slate-themed Dark UI built using modern Tailwind utility classes.
+   - Real-time loading indicator and error handling states.
+
+---
+
+## 📂 Project Structure
+
+```text
+ai-playground/
+├── app/
+│   ├── api/
+│   │   └── generate/
+│   │       └── route.ts       # Backend API endpoint handling Groq integration
+│   ├── layout.tsx             # Root layout with hydration error suppression
+│   ├── page.tsx               # Main UI component with multi-tool tabs
+│   └── globals.css            # Global Tailwind CSS styles
+├── public/                    # Static assets
+├── .env.local                 # Local environment variables (API keys)
+├── package.json               # Dependencies and scripts
+└── README.md                  # Project documentation
