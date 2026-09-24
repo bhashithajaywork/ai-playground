@@ -14,11 +14,15 @@ export async function POST(req: Request) {
     } else if (toolType === 'caption') {
       systemPrompt = "You are an expert social media manager. Generate 3 engaging Instagram/TikTok captions with hashtags for the given topic.";
     } else if (toolType === 'code') {
-      systemPrompt = "You are a senior software developer. Explain the provided code clearly and concisely in simple terms, highlighting what it does and key parts.";
+      systemPrompt = "You are an expert software engineer. Generate clean, efficient, fully working code for the prompt with brief inline comments. Return clear code.";
+    } else if (toolType === 'bugfinder') {
+      systemPrompt = "Analyze the provided code, find the bugs, explain the bug briefly in comments, and provide the fully corrected code.";
     } else if (toolType === 'meme') {
       systemPrompt = "You are a creative meme creator. Provide 3 funny meme concepts (Visual Idea + Top Text + Bottom Text) based on the user's topic.";
     } else if (toolType === 'summary') {
       systemPrompt = "You are an expert editor. Summarize the user's text into clear, bullet-pointed key takeaways, followed by a 1-sentence summary.";
+    } else if (toolType === 'email') {
+      systemPrompt = "Write a professional, persuasive email or LinkedIn post based on the topic.";
     }
 
     // Dynamic model fetching
