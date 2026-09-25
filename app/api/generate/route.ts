@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import Groq from 'groq-sdk';
+export const runtime = 'edge'; // මෙන්න මේ පේලිය route.ts එකේ උඩින්ම දාන්න
+
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
